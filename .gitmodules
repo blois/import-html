@@ -1,0 +1,3 @@
+[submodule "third_party/ModuleLoader"]
+	path = third_party/ModuleLoader
+	url = git://github.com/ModuleLoader/es6-module-loader.git

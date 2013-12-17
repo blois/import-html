@@ -1,0 +1,36 @@
+<!doctype html>
+
+<title>Polymer Test</title>
+<meta charset="UTF-8">
+<script src="../../third_party/ModuleLoader/lib/es6-module-loader.js"></script>
+<script src="bower_components/platform/platform.js"></script>
+<script src="bower_components/polymer/polymer.js"></script>
+<script src='../../lib/import-html.js'></script>
+
+<script type="module">
+  import { PolymerMixin } from 'polymer-mixin';
+  import { template } from 'test-template.html';
+
+  class FooElement extends HTMLElement {
+    enteredView() {
+      this.shadowFromTemplate(template);
+    }
+
+    handleClick() {
+      window.console.log('got a click!');
+    }
+  }
+  Object.mixin(FooElement.prototype, PolymerMixin);
+  document.register('x-foo', FooElement);
+</script>
+
+<div>
+  <x-foo></x-foo>
+</div>
+
+<script>
+  var model = {
+    description: 'data binding'
+  };
+  document.querySelector('x-foo').item = model;
+</script>
